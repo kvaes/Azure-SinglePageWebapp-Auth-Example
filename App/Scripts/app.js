@@ -5,9 +5,9 @@ angular.module('todoApp', ['ngRoute','AdalAngular'])
     $routeProvider.when("/Home", {
         controller: "homeCtrl",
         templateUrl: "/App/Views/Home.html",
-    }).when("/TodoList", {
-        controller: "todoListCtrl",
-        templateUrl: "/App/Views/TodoList.html",
+    }).when("/CatList", {
+        controller: "catListCtrl",
+        templateUrl: "/App/Views/CatList.html",
         requireADLogin: true,
     }).when("/UserData", {
         controller: "userDataCtrl",
