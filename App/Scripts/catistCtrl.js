@@ -1,25 +1,25 @@
 ﻿'use strict';
-angular.module('todoApp')
-.controller('todoListCtrl', ['$scope', '$location', 'todoListSvc', 'adalAuthenticationService', function ($scope, $location, todoListSvc, adalService) {
+angular.module('catApp')
+.controller('catListCtrl', ['$scope', '$location', 'catListSvc', 'adalAuthenticationService', function ($scope, $location, catListSvc, adalService) {
     $scope.error = "";
     $scope.loadingMessage = "Loading...";
-    $scope.todoList = null;
+    $scope.catList = null;
     $scope.editingInProgress = false;
-    $scope.newTodoCaption = "";
+    $scope.newCatCaption = "";
 
 
-    $scope.editInProgressTodo = {
+    $scope.editInProgressCat = {
         Description: "",
         ID: 0
     };
 
     
 
-    $scope.editSwitch = function (todo) {
-        todo.edit = !todo.edit;
-        if (todo.edit) {
-            $scope.editInProgressTodo.Description = todo.Description;
-            $scope.editInProgressTodo.ID = todo.ID;
+    $scope.editSwitch = function (cat) {
+        cat.edit = !cat.edit;
+        if (cat.edit) {
+            $scope.editInProgressCat.Description = cat.Description;
+            $scope.editInProgressCat.ID = cat.ID;
             $scope.editingInProgress = true;
         } else {
             $scope.editingInProgress = false;
@@ -27,8 +27,8 @@ angular.module('todoApp')
     };
 
     $scope.populate = function () {
-        todoListSvc.getItems().success(function (results) {
-            $scope.todoList = results;
+        catListSvc.getItems().success(function (results) {
+            $scope.catList = results;
             $scope.loadingMessage = "";
         }).error(function (err) {
             $scope.error = err;
@@ -36,7 +36,7 @@ angular.module('todoApp')
         })
     };
     $scope.delete = function (id) {
-        todoListSvc.deleteItem(id).success(function (results) {
+        catListSvc.deleteItem(id).success(function (results) {
             $scope.loadingMessage = "";
             $scope.populate();
         }).error(function (err) {
@@ -44,11 +44,11 @@ angular.module('todoApp')
             $scope.loadingMessage = "";
         })
     };
-    $scope.update = function (todo) {
-        todoListSvc.putItem($scope.editInProgressTodo).success(function (results) {
+    $scope.update = function (cat) {
+        catListSvc.putItem($scope.editInProgressCat).success(function (results) {
             $scope.loadingMsg = "";
             $scope.populate();
-            $scope.editSwitch(todo);
+            $scope.editSwitch(cat);
         }).error(function (err) {
             $scope.error = err;
             $scope.loadingMessage = "";
@@ -56,12 +56,12 @@ angular.module('todoApp')
     };
     $scope.add = function () {
 
-        todoListSvc.postItem({
-            'Description': $scope.newTodoCaption,
+        catListSvc.postItem({
+            'Description': $scope.newCatCaption,
             'Owner': adalService.userInfo.userName
         }).success(function (results) {
             $scope.loadingMsg = "";
-            $scope.newTodoCaption = "";
+            $scope.newCatCaption = "";
             $scope.populate();
         }).error(function (err) {
             $scope.error = err;

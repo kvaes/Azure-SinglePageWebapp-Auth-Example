@@ -1,5 +1,5 @@
 ﻿'use strict';
-angular.module('todoApp', ['ngRoute','AdalAngular'])
+angular.module('catApp', ['ngRoute','AdalAngular'])
 .config(['$routeProvider', '$httpProvider', 'adalAuthenticationServiceProvider', function ($routeProvider, $httpProvider, adalProvider) {
 
     $routeProvider.when("/Home", {

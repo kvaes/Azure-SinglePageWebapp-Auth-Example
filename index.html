@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 </head>
-<body ng-app="todoApp" ng-controller="homeCtrl" role="document">
+<body ng-app="catApp" ng-controller="homeCtrl" role="document">
 
 
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -24,7 +24,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li ng-class="{ active: isActive('/Home') }"><a href="#/Home">Home</a></li>
-                    <li ng-class="{ active: isActive('/TodoList') }"><a href="#/TodoList">Todo List</a></li>
+                    <li ng-class="{ active: isActive('/CatList') }"><a href="#/CatList">Cat List</a></li>
                     <li ng-class="{ active: isActive('/UserData') }"><a href="#/UserData" ng-show="userInfo.isAuthenticated">User</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -62,7 +62,7 @@
         <script src="App/Scripts/app.js"></script>
         <script src="App/Scripts/homeCtrl.js"></script>
         <script src="App/Scripts/userDataCtrl.js"></script>
-        <script src="App/Scripts/todoListCtrl.js"></script>
-        <script src="App/Scripts/todoListSvc.js"></script>
+        <script src="App/Scripts/catListCtrl.js"></script>
+        <script src="App/Scripts/catListSvc.js"></script>
 </body>
 </html>

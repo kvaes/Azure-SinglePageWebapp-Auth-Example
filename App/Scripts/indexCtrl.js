@@ -1,5 +1,5 @@
 ﻿'use strict';
-angular.module('todoApp')
+angular.module('catApp')
 .controller('indexCtrl', ['$scope', 'adalAuthenticationService', function ($scope, adalService) {
 
 }]);
