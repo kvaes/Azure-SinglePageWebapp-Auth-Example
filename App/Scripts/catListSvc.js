@@ -1,24 +1,23 @@
 ﻿'use strict';
 angular.module('catApp')
-.factory('catListSvc', ['$http', function ($http) {
-	apiUrl: 'https://spaauthdemoapi.kvaes.be/'; 
+.factory('catListSvc', ['$http', function ($http) { 
     return {
         getItems : function(){
-            return $http.get(apiUrl + '/api/CatList');
+            return $http.get('/api/CatList');
         },
         getItem : function(id){
-            return $http.get(apiUrl + '/api/CatList/' + id);
+            return $http.get('/api/CatList/' + id);
         },
         postItem : function(item){
-            return $http.post(apiUrl + '/api/CatList/',item);
+            return $http.post('/api/CatList/',item);
         },
         putItem : function(item){
-            return $http.put(apiUrl + '/api/CatList/', item);
+            return $http.put('/api/CatList/', item);
         },
         deleteItem : function(id){
             return $http({
                 method: 'DELETE',
-                url: 'apiUrl + /api/CatList/' + id
+                url: '/api/CatList/' + id
             });
         }
     };
